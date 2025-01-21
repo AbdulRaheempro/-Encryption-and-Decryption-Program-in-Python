@@ -1,0 +1,35 @@
+import random
+import string
+chars=string.ascii_letters+string.digits+string.punctuation
+chars=list(chars)
+key=chars.copy()
+random.shuffle(key)
+
+x=[]
+a=[]
+def encryption(input1):
+    for i in input1:
+        if i in chars:
+          index=chars.index(i)
+          x.append(key[index])
+          
+        else:
+           x.append(i)
+    print(f"input text={input1}")
+    print("encrypted text","".join(x))
+
+def decripted(x):
+    for i in x:
+        if i in key:
+            index=key.index(i)
+            a.append(chars[index])
+    print("decripted code is=","".join(a))
+    
+
+input1=input("enter the text=")
+encryption(input1)
+choice=int(input("press 1 for decript:"))
+if choice==1: 
+    decripted(x)
+else:
+    print("invalid input")
